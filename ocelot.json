@@ -1,0 +1,23 @@
+﻿{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
+  },
+  "Routes": [
+    {
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
+      "UpstreamPathTemplate": "/apigateway/{Controller}",
+      "DownstreamPathTemplate": "/api/{Controller}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "LoadBalancerOptions": { "Type": "LeastConnection" },
+      "FileCacheOptions": {
+        "TtlSeconds": 20
+      }
+    }
+  ]
+}
